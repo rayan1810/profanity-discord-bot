@@ -23,7 +23,7 @@ class MyClient(discord.Client):
         # we do not want the bot to reply to itself
         if message.author.id == self.user.id:
             return
-        if profanity.contains_profanity(message.content):
+        if profanity.contains_profanity(message.content) and message.channel.name == "bot-tests":
             author_banable = True
             print(message.author.roles)
             for x in message.author.roles:
