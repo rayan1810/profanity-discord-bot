@@ -55,7 +55,7 @@ class MyClient(discord.Client):
                     if(author_banable):
                         await message.author.ban()
                         await message.channel.send("{} has been banned for using profanity!".format(message.author.mention))
-                    supabase.table('profanity_bot_ban_list').update({"profanity_strikes": profanity_strikes}, "profanity_contents": "{},{}".format(profanity_contents, message.content)).eq(
+                    supabase.table('profanity_bot_ban_list').update({"profanity_strikes": profanity_strikes, "profanity_contents": "{},{}".format(profanity_contents, message.content)}).eq(
                         "discord_auth_id", message.author.id).execute()
             else:
                 supabase.table("profanity_bot_ban_list").insert(
