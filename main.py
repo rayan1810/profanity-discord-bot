@@ -46,10 +46,10 @@ class MyClient(discord.Client):
             if len(culprit_details[0]) > 0:
                 profanity_strikes = culprit_details[0][0]["profanity_strikes"]
                 profanity_strikes += 1
-                if profanity_strikes <= 3:
+                if profanity_strikes <= 100:
                     supabase.table('profanity_bot_ban_list').update({"profanity_strikes": profanity_strikes}).eq(
                         "discord_auth_id", message.author.id).execute()
-                elif profanity_strikes > 3:
+                elif profanity_strikes > 100: #keeping 100 for now as a safety measure
                     if(author_banable):
                         await message.author.ban()
                         await message.channel.send("{} has been banned for using profanity!".format(message.author.mention))
