@@ -1,2 +1,2 @@
 - fck
-- BlrSucks
+- scks
