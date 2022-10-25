@@ -1,2 +1,3 @@
-- foo
-- bar
+- fo
+- fy
+- fu
